@@ -1,12 +1,11 @@
 import tkinter as tk
-from tkinter import font, N, W, E, S
-from tkinter.ttk import Frame, Button, Entry
+from tkinter import font, Frame, Button, Entry, N, W, E, S
 from CalcButton import CalcButton
 
 root = tk.Tk()
 root.title("Calculator")
 
-main = Frame(root, padding = 3)
+main = Frame(root, padx=3, pady=3)
 main.grid(column=0, row=0, sticky=(N,W,E,S))
 root.columnconfigure(0, weight=1)
 root.rowconfigure(0, weight=1)
@@ -17,7 +16,7 @@ defaultFont.configure(family="Helvetica", size=20)
 numEntry = Entry(main, justify="right", font=("Helvetica 35"))
 numEntry.grid(column=0, row=0, sticky=(N, W, E), columnspan=5)
 
-Button(main, text="plch").grid(column=1, row=1)
+CalcButton(main, text="plch").grid(column=1, row=1)
 Button(main, text="plch").grid(column=2, row=1)
 Button(main, text="plch").grid(column=3, row=1)
 Button(main, text="⌫").grid(column=4, row=1)
