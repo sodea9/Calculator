@@ -3,7 +3,7 @@ from tkinter import font, Frame, Button, Entry, N, W, E, S
 from StandardButton import *
 
 root = tk.Tk()
-root.title("Calculator")                            #TODO: fix weird button padding
+root.title("Calculator")
 
 main = Frame(root, padx=3, pady=3)
 main.grid(column=0, row=0, sticky=(N,W,E,S))
@@ -13,7 +13,7 @@ root.rowconfigure(0, weight=1)
 defaultFont = font.nametofont("TkDefaultFont")
 defaultFont.configure(family="Helvetica", size=20)
 
-numEntry = Entry(main, justify="right", font=("Helvetica 30"))
+numEntry = Entry(main, width=1, justify="right", font=("Helvetica 35"))
 numEntry.grid(column=0, row=0, sticky=(N, W, E), columnspan=5)
 
 pixel = tk.PhotoImage(height=1, width=1)

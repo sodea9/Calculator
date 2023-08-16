@@ -1,7 +1,7 @@
 from tkinter import Button
 
-BUTTONWIDTH = 30
-BUTTONHEIGHT = 30
+BUTTONWIDTH = 60
+BUTTONHEIGHT = 60
 
 class StandardButton(Button):
     def __init__(self, parentWidget, text=None, image=None):
