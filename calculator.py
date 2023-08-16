@@ -1,5 +1,11 @@
+#TODO: Styling
+#      Resizing
+#      Theme option in settings
+#      breeze-dark, awdark
+
 import tkinter as tk
 from tkinter import font, Frame, Button, Entry, N, W, E, S
+import ttkthemes
 from StandardButton import *
 
 root = tk.Tk()
