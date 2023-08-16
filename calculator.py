@@ -4,7 +4,7 @@
 #      breeze-dark, awdark
 
 import tkinter as tk
-from tkinter import font, Frame, Button, Entry, N, W, E, S
+from tkinter import ttk, font, Frame, Button, Entry, N, W, E, S
 import ttkthemes
 from StandardButton import *
 
