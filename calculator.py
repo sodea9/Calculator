@@ -10,6 +10,8 @@ from StandardButton import *
 
 root = tk.Tk()
 root.title("Calculator")
+icon = tk.PhotoImage(file="calcicon.png")
+root.iconphoto(False, icon)
 
 main = Frame(root, padx=3, pady=3)
 main.grid(column=0, row=0, sticky=(N,W,E,S))
