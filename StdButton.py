@@ -1,6 +1,6 @@
 from tkinter.ttk import Button
 
-BUTTONWIDTH = 3
+BUTTONWIDTH = 4
 PADDING = 8
 
 class StdButton(Button):

@@ -5,10 +5,14 @@
 
 import tkinter as tk
 from tkinter import ttk, font, Frame, Button, Entry, N, W, E, S
-import ttkthemes
+from ttkthemes import ThemedTk
+import sv_ttk
+import customtkinter
 from StdButton import *
 
 root = tk.Tk()
+#root = ThemedTk()
+#root = customtkinter.CTk()
 root.title("Calculator")
 icon = tk.PhotoImage(file="calcicon.png")
 root.iconphoto(False, icon)
@@ -17,6 +21,16 @@ main = Frame(root, padx=3, pady=3)
 main.grid(column=0, row=0, sticky=(N,W,E,S))
 root.columnconfigure(0, weight=1)
 root.rowconfigure(0, weight=1)
+
+root.tk.call("lappend", "auto_path", "TkCustomThemes/awthemes-10.4.0")
+root.tk.call("package", "require", "awdark")
+s = ttk.Style(root)
+s.theme_use("vista")
+#print(root.get_themes())
+print(s.theme_names())
+#sv_ttk.set_theme("dark")
+#customtkinter.set_appearance_mode("System")
+#customtkinter.set_default_color_theme("blue")
 
 defaultFont = font.nametofont("TkDefaultFont")
 defaultFont.configure(family="Helvetica", size=20)
