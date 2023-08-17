@@ -1,18 +1,14 @@
-#TODO: Styling
-#      Resizing
-#      Theme option in settings
-#      breeze-dark, awdark
+#TODO: Functionality
+#      Change color of = button
+#DO LATER: Styling
+#          Menu
 
 import tkinter as tk
 from tkinter import ttk, font, Frame, Button, Entry, N, W, E, S
 from ttkthemes import ThemedTk
-import sv_ttk
-import customtkinter
 from StdButton import *
 
-root = tk.Tk()
-#root = ThemedTk()
-#root = customtkinter.CTk()
+root = ThemedTk()
 root.title("Calculator")
 icon = tk.PhotoImage(file="calcicon.png")
 root.iconphoto(False, icon)
@@ -22,15 +18,10 @@ main.grid(column=0, row=0, sticky=(N,W,E,S))
 root.columnconfigure(0, weight=1)
 root.rowconfigure(0, weight=1)
 
-root.tk.call("lappend", "auto_path", "TkCustomThemes/awthemes-10.4.0")
-root.tk.call("package", "require", "awdark")
 s = ttk.Style(root)
-s.theme_use("vista")
-#print(root.get_themes())
+s.theme_use("keramik")
+print(root.get_themes())
 print(s.theme_names())
-#sv_ttk.set_theme("dark")
-#customtkinter.set_appearance_mode("System")
-#customtkinter.set_default_color_theme("blue")
 
 defaultFont = font.nametofont("TkDefaultFont")
 defaultFont.configure(family="Helvetica", size=20)
@@ -65,7 +56,7 @@ StdButton(main, text="+").grid(column=4, row=5, rowspan=2, sticky=(N,S))
 StdButton(main, text="AC").grid(column=0, row=6)
 StdButton(main, text="0").grid(column=1, row=6)
 StdButton(main, text=".").grid(column=2, row=6)
-StdButton(main, text="=").grid(column=3, row=6)
+StdButton(main, text="=", bg="red").grid(column=3, row=6)
 
 numEntry.focus()
 root.mainloop()
