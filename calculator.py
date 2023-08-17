@@ -1,14 +1,12 @@
 #TODO: Functionality
 #      Change color of = button
-#DO LATER: Styling
-#          Menu
 
 import tkinter as tk
 from tkinter import ttk, font, Frame, Button, Entry, N, W, E, S
 from ttkthemes import ThemedTk
 from StdButton import *
 
-root = ThemedTk()
+root = tk.Tk()
 root.title("Calculator")
 icon = tk.PhotoImage(file="calcicon.png")
 root.iconphoto(False, icon)
@@ -19,14 +17,14 @@ root.columnconfigure(0, weight=1)
 root.rowconfigure(0, weight=1)
 
 s = ttk.Style(root)
-s.theme_use("keramik")
-print(root.get_themes())
-print(s.theme_names())
+s.theme_use("xpnative")
+#print(root.get_themes())
+#print(s.theme_names())
 
 defaultFont = font.nametofont("TkDefaultFont")
 defaultFont.configure(family="Helvetica", size=20)
 
-numEntry = Entry(main, width=1, justify="right", font=("Helvetica 35"))
+numEntry = Entry(main, width=1, justify="right", font=("Helvetica 33"))
 numEntry.grid(column=0, row=0, sticky=(N, W, E), columnspan=5)
 
 StdButton(main, text="plch").grid(column=1, row=1)
