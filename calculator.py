@@ -6,7 +6,7 @@
 import tkinter as tk
 from tkinter import ttk, font, Frame, Button, Entry, N, W, E, S
 from StdButton import *
-from numfunctions import *
+from buttonfunctions import *
 
 root = tk.Tk()
 root.title("Calculator")
@@ -33,7 +33,7 @@ numEntry.grid(column=0, row=0, sticky=(N, W, E), columnspan=5)
 StdButton(main, text="plch").grid(column=1, row=1)
 StdButton(main, text="plch").grid(column=2, row=1)
 StdButton(main, text="plch").grid(column=3, row=1)
-StdButton(main, text="⌫").grid(column=4, row=1)
+StdButton(main, text="⌫", command=lambda: backspace(display)).grid(column=4, row=1)
 StdButton(main, text="MC").grid(column=0, row=2)
 StdButton(main, text="MR").grid(column=1, row=2)
 StdButton(main, text="M−").grid(column=2, row=2)
