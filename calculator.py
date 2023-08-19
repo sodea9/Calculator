@@ -7,7 +7,9 @@
 import tkinter as tk
 from tkinter import ttk, font, Frame, Button, Entry, N, W, E, S
 from StdButton import *
+from Integer import *
 from buttonfunctions import *
+
 
 root = tk.Tk()
 root.title("Calculator")
@@ -27,9 +29,10 @@ s.theme_use("xpnative")
 defaultFont = font.nametofont("TkDefaultFont")
 defaultFont.configure(family="Helvetica", size=20)
 
-display = tk.StringVar()
+display = tk.StringVar(value="0")
 numEntry = Entry(main, width=1, justify="right", font=("Helvetica 33"), textvariable=display)
 numEntry.grid(column=0, row=0, sticky=(N, W, E), columnspan=5)
+memValue = Integer()
 
 StdButton(main, text="plch").grid(column=1, row=1)
 StdButton(main, text="plch").grid(column=2, row=1)
@@ -60,5 +63,4 @@ StdButton(main, text="0", command=lambda: num_button(0, display)).grid(column=1,
 StdButton(main, text=".").grid(column=2, row=6)
 StdButton(main, text="=").grid(column=3, row=6)
 
-numEntry.focus()
 root.mainloop()

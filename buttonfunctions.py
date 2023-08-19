@@ -3,18 +3,24 @@
 #      overflows
 #      leading 0s
 #      always display 0
+#      = button repeat operator functionality
 
 def num_button(toAppend, textVar):
     toAppend = str(toAppend)
-    currentText = textVar.get()
-    textVar.set(currentText + toAppend)
+    currentValue = textVar.get()
+    textVar.set(currentValue + toAppend)
 
 def backspace(textVar):
-    currentText = textVar.get()
-    textVar.set(currentText[:len(currentText)-1])
+    currentValue = textVar.get()
+    textVar.set(currentValue[:len(currentText)-1])
 
-def all_clear():
-    pass
+def temp_clear(textVar):
+    textVar.set("0")
+
+
+def all_clear(textVar, memValue):
+    textVar.set("0")
+    memValue = 0
 
 def add():
     pass
