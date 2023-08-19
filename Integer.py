@@ -7,5 +7,3 @@ class Integer():
     
     def set(self, newValue):
         self.value = newValue
-
-    

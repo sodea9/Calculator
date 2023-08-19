@@ -5,64 +5,79 @@
 #      always display 0
 #      = button repeat operator functionality
 
+def comma_parse(number):
+    #add commas every 3rd number
+    pass
+
 def num_button(toAppend, textVar):
     toAppend = str(toAppend)
     currentValue = textVar.get()
-    textVar.set(currentValue + toAppend)
+    if currentValue == "0":
+        textVar.set(toAppend)
+    else:
+        textVar.set(currentValue + toAppend)
 
 def backspace(textVar):
     currentValue = textVar.get()
-    textVar.set(currentValue[:len(currentText)-1])
+    if len(currentValue)==1:
+        textVar.set("0")
+    else:
+        textVar.set(currentValue[:len(currentValue)-1])
 
 def temp_clear(textVar):
     textVar.set("0")
 
-
-def all_clear(textVar, memValue):
+def all_clear(textVar, memory):
     textVar.set("0")
-    memValue = 0
+    memory.set(0)
 
-def add():
+def add(textVar):
     pass
 
-def subtract():
+def subtract(textVar):
     pass
 
-def multiply():
+def multiply(textVar):
     pass
 
-def divide():
+def divide(textVar):
     pass
 
-def equals():
+def equals(textVar):
+    #save operator function in variable then pass it to this function to execute
     pass
 
-def decimal():
+def decimal(textVar):
     pass
 
-def reciprocal():
+def reciprocal(textVar):
     pass
 
-def square():
+def square(textVar):
     pass
 
-def root():
+def square_root(textVar):
     pass
 
-def percent():
+def percent(textVar):
     pass
 
-def plus_minus():
+def plus_minus(textVar):
     pass
 
-def mem_clear():
-    pass
+def mem_clear(memValue):
+    memValue.set(0)
 
-def mem_recall():
-    pass
+def mem_recall(textVar, memory):
+    memValue = memory.get()
+    textVar.set(str(memValue))
 
-def mem_add():
-    pass
+def mem_add(textVar, memory):
+    memValue = memory.get()
+    memValue += int(textVar.get())
+    memory.set(memValue)
 
-def mem_subtract():
-    pass
+def mem_subtract(textVar, memory):
+    memValue = memory.get()
+    memValue -= int(textVar.get())
+    memory.set(memValue)
