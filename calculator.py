@@ -2,6 +2,7 @@
 #      Input handling
 #      Keyboard event handling
 #      Change color of = button
+#      Window resizing
 
 import tkinter as tk
 from tkinter import ttk, font, Frame, Button, Entry, N, W, E, S
