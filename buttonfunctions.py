@@ -29,14 +29,18 @@ def num_button(toAppend, textVar):
     if currentValue == "0":
         textVar.set(toAppend)
     else:
-        textVar.set(currentValue + toAppend)
+        toDisplay = currentValue + toAppend
+        formatted = format_number(toDisplay)
+        textVar.set(formatted)
 
 def backspace(textVar):
     currentValue = textVar.get()
     if len(currentValue)==1:
         textVar.set("0")
     else:
-        textVar.set(currentValue[:len(currentValue)-1])
+        toDisplay = currentValue[:len(currentValue)-1]
+        formatted = format_number(toDisplay)
+        textVar.set(formatted)
 
 def temp_clear(textVar):
     textVar.set("0")
