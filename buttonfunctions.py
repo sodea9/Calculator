@@ -2,12 +2,23 @@
 #      floating point
 #      overflows
 #      leading 0s
-#      always display 0
 #      = button repeat operator functionality
+#      every time number changes, strip commas then add them back
 
-def comma_parse(number):
-    #add commas every 3rd number
-    pass
+def add_commas(number:int) -> str:
+    return f'{number:,}'
+
+def comma_parse_recursive(number:str) -> str:
+    # Didn't end up needing this but I'm going to leave it here because I'm proud of it :)
+    if len(number) <= 3:
+        return number
+    else:
+        slice = number[-3:]
+        remainder = comma_parse_recursive(number[:-3])
+    return ",".join([remainder, slice])
+
+def remove_commas(number:str) -> int:
+    return number.replace(",", "")
 
 def num_button(toAppend, textVar):
     toAppend = str(toAppend)
