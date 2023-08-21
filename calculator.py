@@ -1,7 +1,7 @@
 #TODO: Button Functionality
-#      Input handling
 #      Keyboard event handling
 #      Change color of = button
+#      Active operator button highlighted
 #      Window resizing
 
 import tkinter as tk

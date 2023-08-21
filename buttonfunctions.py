@@ -1,9 +1,8 @@
 #TODO: comma handling
-#      floating point
+#      floating point support
 #      overflows
-#      leading 0s
 #      = button repeat operator functionality
-#      every time number changes, strip commas then add them back
+#      add negative sign handling with commas
 
 def add_commas(number:int) -> str:
     return f'{number:,}'
@@ -19,6 +18,10 @@ def comma_parse_recursive(number:str) -> str:
 
 def remove_commas(number:str) -> int:
     return number.replace(",", "")
+
+def format_number(number: str) -> str:
+    number = remove_commas(number)
+    return add_commas(int(number))
 
 def num_button(toAppend, textVar):
     toAppend = str(toAppend)
