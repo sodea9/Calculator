@@ -36,7 +36,7 @@ memory = Integer()
 currentOperator = None
 
 StdButton(main, text="plch", command=lambda: reciprocal()).grid(column=1, row=1)
-StdButton(main, text="plch", command=lambda: square()).grid(column=2, row=1)
+StdButton(main, text="plch", command=lambda: square(display)).grid(column=2, row=1)
 StdButton(main, text="plch", command=lambda: square_root()).grid(column=3, row=1)
 StdButton(main, text="⌫", command=lambda: backspace(display)).grid(column=4, row=1)
 StdButton(main, text="MC", command=lambda: mem_clear(memory)).grid(column=0, row=2)

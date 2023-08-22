@@ -19,9 +19,16 @@ def comma_parse_recursive(number:str) -> str:
 def remove_commas(number:str) -> int:
     return number.replace(",", "")
 
-def format_number(number: str) -> str:
+def reformat_number(number) -> str:
+    if not isinstance(number, str):
+        raise ValueError("How many times do we have to teach you this lesson old man?")
+    
     number = remove_commas(number)
     return add_commas(int(number))
+
+def get_raw_number(textVar):
+    commaNum = textVar.get()
+    return int(remove_commas(commaNum))
 
 def num_button(toAppend, textVar):
     toAppend = str(toAppend)
@@ -30,7 +37,7 @@ def num_button(toAppend, textVar):
         textVar.set(toAppend)
     else:
         toDisplay = currentValue + toAppend
-        formatted = format_number(toDisplay)
+        formatted = reformat_number(toDisplay)
         textVar.set(formatted)
 
 def backspace(textVar):
@@ -39,7 +46,7 @@ def backspace(textVar):
         textVar.set("0")
     else:
         toDisplay = currentValue[:len(currentValue)-1]
-        formatted = format_number(toDisplay)
+        formatted = reformat_number(toDisplay)
         textVar.set(formatted)
 
 def temp_clear(textVar):
@@ -61,7 +68,7 @@ def multiply(textVar):
 def divide(textVar):
     pass
 
-def equals(textVar):
+def equals(textVar, operator):
     #save operator function in variable then pass it to this function to execute
     pass
 
@@ -72,7 +79,8 @@ def reciprocal(textVar):
     pass
 
 def square(textVar):
-    pass
+    currentValue = get_raw_number(textVar)
+    textVar.set(add_commas(currentValue ** 2))
 
 def square_root(textVar):
     pass
