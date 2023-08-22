@@ -1,8 +1,11 @@
 #TODO: comma handling
 #      floating point support
+#      return to int if it returns to a cardinal number
 #      overflows
 #      = button repeat operator functionality
 #      add negative sign handling with commas
+
+from math import sqrt
 
 def add_commas(number:int) -> str:
     return f'{number:,}'
@@ -83,7 +86,8 @@ def square(textVar):
     textVar.set(add_commas(currentValue ** 2))
 
 def square_root(textVar):
-    pass
+    currentValue = get_raw_number(textVar)
+    textVar.set(add_commas(sqrt(currentValue)))
 
 def percent(textVar):
     pass
