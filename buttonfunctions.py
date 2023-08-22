@@ -1,5 +1,6 @@
-#TODO: comma handling
-#      floating point support
+#TODO: floating point support
+#      error messages
+#      function edge cases
 #      return to int if it returns to a cardinal number
 #      overflows
 #      = button repeat operator functionality
@@ -79,7 +80,10 @@ def decimal(textVar):
     pass
 
 def reciprocal(textVar):
-    pass
+    currentValue = get_raw_number(textVar)
+    if currentValue == 0:
+        textVar.set("Error")
+    textVar.set(add_commas(1 / currentValue))
 
 def square(textVar):
     currentValue = get_raw_number(textVar)
@@ -90,7 +94,8 @@ def square_root(textVar):
     textVar.set(add_commas(sqrt(currentValue)))
 
 def percent(textVar):
-    pass
+    currentValue = get_raw_number(textVar)
+    textVar.set(add_commas(currentValue / 100))
 
 def plus_minus(textVar):
     pass
