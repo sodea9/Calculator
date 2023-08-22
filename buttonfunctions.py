@@ -1,10 +1,12 @@
-#TODO: floating point support
+#TODO:
 #      error messages
 #      function edge cases
 #      return to int if it returns to a cardinal number
 #      overflows
 #      = button repeat operator functionality
-#      add negative sign handling with commas
+#      **main operators
+#      **add negative sign handling with commas
+#      **floating point support
 
 from math import sqrt
 
@@ -63,13 +65,13 @@ def all_clear(textVar, memory):
 def add(textVar):
     pass
 
-def subtract(textVar):
+def subtract(textVar, toSubtract):
     pass
 
 def multiply(textVar):
     pass
 
-def divide(textVar):
+def divide(textVar, toDivide):
     pass
 
 def equals(textVar, operator):
@@ -98,21 +100,24 @@ def percent(textVar):
     textVar.set(add_commas(currentValue / 100))
 
 def plus_minus(textVar):
-    pass
+    currentValue = get_raw_number(textVar)
+    if currentValue < 0:
+        return
+    textVar.set(add_commas(currentValue * -1))
 
 def mem_clear(memValue):
     memValue.set(0)
 
 def mem_recall(textVar, memory):
     memValue = memory.get()
-    textVar.set(str(memValue))
+    textVar.set(add_commas(memValue))
 
 def mem_add(textVar, memory):
     memValue = memory.get()
-    memValue += int(textVar.get())
+    memValue += get_raw_number(textVar)
     memory.set(memValue)
 
 def mem_subtract(textVar, memory):
     memValue = memory.get()
-    memValue -= int(textVar.get())
+    memValue -= get_raw_number(textVar)
     memory.set(memValue)
