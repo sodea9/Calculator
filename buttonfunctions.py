@@ -4,8 +4,8 @@
 #      return to int if it returns to a cardinal number
 #      overflows
 #      = button repeat operator functionality
+#double check negatives work after adding minus button
 #      **main operators
-#      **add negative sign handling with commas
 #      **floating point support
 
 from math import sqrt
@@ -25,7 +25,7 @@ def comma_parse_recursive(number:str) -> str:
 def remove_commas(number:str) -> int:
     return number.replace(",", "")
 
-def reformat_number(number) -> str:
+def reformat(number) -> str:
     if not isinstance(number, str):
         raise ValueError("How many times do we have to teach you this lesson old man?")
     
@@ -36,14 +36,16 @@ def get_raw_number(textVar):
     commaNum = textVar.get()
     return int(remove_commas(commaNum))
 
-def num_button(toAppend, textVar):
+def num_button(toAppend, textVar, operator):
+    if operator:
+        textVar.set("0")
     toAppend = str(toAppend)
     currentValue = textVar.get()
     if currentValue == "0":
         textVar.set(toAppend)
     else:
         toDisplay = currentValue + toAppend
-        formatted = reformat_number(toDisplay)
+        formatted = reformat(toDisplay)
         textVar.set(formatted)
 
 def backspace(textVar):
@@ -52,7 +54,7 @@ def backspace(textVar):
         textVar.set("0")
     else:
         toDisplay = currentValue[:len(currentValue)-1]
-        formatted = reformat_number(toDisplay)
+        formatted = reformat(toDisplay)
         textVar.set(formatted)
 
 def temp_clear(textVar):
@@ -62,10 +64,11 @@ def all_clear(textVar, memory):
     textVar.set("0")
     memory.set(0)
 
-def add(textVar):
-    pass
+def add(textVar, saved) -> str:
+    saved.set(saved.get() + get_raw_number(textVar))
+    return "+"
 
-def subtract(textVar, toSubtract):
+def subtract(textVar):
     pass
 
 def multiply(textVar):
@@ -74,9 +77,16 @@ def multiply(textVar):
 def divide(textVar, toDivide):
     pass
 
-def equals(textVar, operator):
-    #save operator function in variable then pass it to this function to execute
-    pass
+def equals(textVar, saved, operator):
+    if operator == "+":
+        textVar.set(add_commas(saved.get() + get_raw_number(textVar.get())))
+    if operator == "-":
+        textVar.set(add_commas(saved.get() - get_raw_number(textVar.get())))
+    if operator == "*":
+        textVar.set(add_commas(saved.get() * get_raw_number(textVar.get())))
+    if operator == "/":
+        textVar.set(add_commas(saved.get() / get_raw_number(textVar.get())))
+
 
 def decimal(textVar):
     pass
