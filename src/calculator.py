@@ -1,3 +1,7 @@
+#Author: Sean O'Dea
+#Date: 9/14/2023
+
+
 #TODO: Button Functionality
 #      Keyboard event handling
 #      Change color of = button
